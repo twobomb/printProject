@@ -11,10 +11,20 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'defaultRoute' => 'product',//СТАНДАРТНЫЙ КОНТРОЛЛЕР
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'RFf43ijf33jiFJef4fw',
+        ],
+        'assetManager' => [
+            'bundles' => [
+                'yii\bootstrap\BootstrapAsset' => [
+                    'css' => [
+                        'bootstrap.css' => '../../css/bootstrap.min.css'// прописываем кастомные бутстрап стили
+                    ]
+                ]
+            ]
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -24,7 +34,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'app/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
